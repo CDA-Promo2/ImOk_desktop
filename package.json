@@ -1,0 +1,19 @@
+{
+  "name": "imok_desktop",
+  "version": "0.0.1",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "electron": "^9.0.4"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "electron-json-storage": "^4.1.8"
+  }
+}

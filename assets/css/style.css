@@ -1,0 +1,133 @@
+body,
+html {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #F4F2F2;
+}
+
+body.background {
+    background: url('../img/background.jpg') no-repeat #F4F2F2;
+}
+
+body.background-light {
+    background: url('../img/background-light.jpg') no-repeat #F4F2F2;
+}
+
+/**
+* =================
+* CARD STYLING
+* =================
+ */
+.card {
+    background: #fff;
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px #000a;
+    padding: 20px;
+}
+
+.card-title {
+    margin: 0;
+}
+
+.card-header,
+.card-footer {
+    padding: 20px 0;
+    background-color: inherit;
+    border: none;
+}
+
+.card-body {
+    padding: 0;
+}
+
+/**
+* ==== LOGIN CARD =======
+ */
+
+.login-card {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.login-card .card-header {
+    text-align: center;
+    font-size: 24px;
+}
+
+.login-card .logo {
+    width: 100px;
+}
+
+.login-card .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-card .card-footer a {
+    font-size: 14px;
+}
+
+
+/**
+* UI WRAPPER
+ */
+.ui_wrapper {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.ui_menu {
+    width: 240px;
+    height: 100vh;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.2s ease-in-out;
+    padding: 0 20px;
+}
+
+.ui_container {
+    background: red;
+    width: calc(100vw - 240px);
+    min-height: 100vh;
+    margin-left: auto;
+    padding: 0 20px;
+}
+
+.ui_menu_toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    display: block;
+    position: absolute;
+    right: -20px;
+    top: calc(50% - 20px);
+    background: #fff;
+    cursor: pointer;
+}
+
+@media (max-width: 799px) {
+    .ui_menu:not(.open) {
+        transform: translateX(-240px);
+    }
+
+    .ui_container {
+        margin-left: 0;
+        width: 100vw;
+    }
+}
+
+@media (min-width: 800px) {
+    .ui_menu_toggle {
+        display: none;
+    }
+}

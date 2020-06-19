@@ -12,19 +12,28 @@
     <title>Imok Desktop</title>
 </head>
 <body class="background-light">
-    <!-- LEFT MENU -->
-    <nav class="ui_menu">
-        <span class="ui_menu_toggle"></span>
-        <h2>Main Menu</h2>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-dark bg-primary shadow">
+            <a href="dashboard.html" class="navbar-brand float-left">
+                <img src="../assets/img/imok_logo_white.png" alt="">
+                IMOK
+            </a>
+            <ul class="nav navbar-nav flex-row float-right">
+                <li class="nav-item">
+                    <a class="nav-link pr-3" href="estate_search.html">Estates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Logout</a>
+                </li>
+            </ul>
     </nav>
-    <!-- INTERFACE -->
-    <div class="ui_container">
-        <h2>Content</h2>
-    </div>
+    <main>
+        <h1>HUB</h1>
+    </main>
 <!-- SCRIPTS -->
-<script>window.$ = window.jQuery = require('../assets/js/jquery-3.4.1.min.js');</script>
+<script>window.$ = window.jQuery = require('../assets/js/jquery-3.4.1.min.js')</script>
 <script src="../assets/js/popper.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
-<script src="../assets/js/main.js"></script>
+<script src="../renderers/dashboard.js"></script>
 </body>
 </html>

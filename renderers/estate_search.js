@@ -16,16 +16,18 @@ const displayEstateResults = (data, isArray) => {
             estateCount = `${data.estate.length} résultat(s) correspond(ent) à la recherche`
             estateList += data.estate.map(estate => (
                 `<div class="col-md-4 col-sm-6 col-lg-3 mb-3">
-                    <div class="card estate_card h-100">
-                        <div class="estate_card_reference">Référence: #${("00000" + estate.id).slice(-5)}</div>
-                        <div class="estate_card_img_wrapper">
-                            <img src="../assets/img/maison.jpg" alt="" class="estate_card_img">
-                            <div class="estate_card_price">${estate.price ? new Intl.NumberFormat('de-DE').format(estate.price).replace('.', ' ') + ' €' : '--'}</div>
+                    <a href="estate_details.html?estate=${estate.id}">
+                        <div class="card estate_card h-100">
+                            <div class="estate_card_reference">Référence: #${("00000" + estate.id).slice(-5)}</div>
+                            <div class="estate_card_img_wrapper">
+                                <img src="../assets/img/maison.jpg" alt="" class="estate_card_img">
+                                <div class="estate_card_price">${estate.price ? new Intl.NumberFormat('de-DE').format(estate.price).replace('.', ' ') + ' €' : '--'}</div>
+                            </div>
+                            <div class="estate_card_type">${estate.estate_type ?? '--'}</div>
+                            <div class="estate_card_address">${estate.address ?? '--'}</div>
+                            <div class="estate_card_city">${estate.city ?? '--'} (${estate.zip_code ?? '--'})</div>
                         </div>
-                        <div class="estate_card_type">${estate.estate_type ?? '--'}</div>
-                        <div class="estate_card_address">${estate.address ?? '--'}</div>
-                        <div class="estate_card_city">${estate.city ?? '--'} (${estate.zip_code ?? '--'})</div>
-                    </div>
+                    </a>
                 </div>`
             )).join('')
         } else {
@@ -34,14 +36,16 @@ const displayEstateResults = (data, isArray) => {
             estateList +=
                 `<div class="col-md-4 col-sm-6 col-lg-3 mb-3">
                     <div class="card estate_card h-100">
-                        <div class="estate_card_reference">Référence: #${("00000" + estate.id).slice(-5)}</div>
-                        <div class="estate_card_img_wrapper">
-                            <img src="../assets/img/maison.jpg" alt="" class="estate_card_img">
-                            <div class="estate_card_price">${estate.price ? new Intl.NumberFormat('de-DE').format(estate.price).replace('.', ' ') + ' €' : '--'}</div>
-                        </div>
-                        <div class="estate_card_type">${estate.estate_type ?? '--'}</div>
-                        <div class="estate_card_address">${estate.address ?? '--'}</div>
-                        <div class="estate_card_city">${estate.city ?? '--'} (${estate.zip_code ?? '--'})</div>
+                        <a href="estate_details.html?estate=${estate.id}">
+                            <div class="estate_card_reference">Référence: #${("00000" + estate.id).slice(-5)}</div>
+                            <div class="estate_card_img_wrapper">
+                                <img src="../assets/img/maison.jpg" alt="" class="estate_card_img">
+                                <div class="estate_card_price">${estate.price ? new Intl.NumberFormat('de-DE').format(estate.price).replace('.', ' ') + ' €' : '--'}</div>
+                            </div>
+                            <div class="estate_card_type">${estate.estate_type ?? '--'}</div>
+                            <div class="estate_card_address">${estate.address ?? '--'}</div>
+                            <div class="estate_card_city">${estate.city ?? '--'} (${estate.zip_code ?? '--'})</div>
+                        </a>
                     </div>
                 </div>`
         }

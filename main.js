@@ -61,4 +61,13 @@ app.whenReady().then(createLoginWindow).then(() => {
             loginWindow.hide()
         })
     })
+
+    ipc.on('load_pdf_window', (event, arg) => {
+        if (pdfWindow === undefined) {
+            createPdfWindow()
+        } else {
+            pdfWindow.loadURL(`file://${__dirname}/views/estate_print.html`)
+        }
+        /** TODO: IPC SEND MESSAGE WITH ESTATE ARGUMENT */
+    })
 })

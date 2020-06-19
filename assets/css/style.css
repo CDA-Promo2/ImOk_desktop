@@ -164,3 +164,20 @@ body.background-light {
     line-height: 16px;
     font-weight: 600;
 }
+
+/**
+* ESTATE PREPRINT CARD
+ */
+.image_select {
+    max-height: 300px;
+    overflow-x: hidden;
+}
+
+.image_select_item {
+    box-shadow: 3px 3px 3px #0006;
+    cursor: pointer;
+}
+
+.image_select_item.selected {
+    border: 3px solid #5E5EAF;
+}

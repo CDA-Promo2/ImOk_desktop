@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CSS LIBS AND CUSTOM STYLING -->
+    <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>Imok Desktop</title>
+</head>
+<body class="background-light">
+<!-- NAVBAR -->
+<nav class="navbar navbar-dark bg-primary shadow">
+    <a href="dashboard.html" class="navbar-brand float-left">
+        <img src="../assets/img/imok_logo_white.png" alt="">
+        IMOK
+    </a>
+    <ul class="nav navbar-nav flex-row float-right">
+        <li class="nav-item active">
+            <a class="nav-link pr-3" href="estate_search.html">Estates</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">Logout</a>
+        </li>
+    </ul>
+</nav>
+<main class="container">
+    <div class="row mt-5">
+        <div class="col-md-8">
+            <div class="card estate_preprint_card">
+                <h4>Personnalisez l'annonce</h4>
+                <div class="form-group">
+                    <label for="form_district">Quartier</label>
+                    <input type="text" class="form-control" id="form_district" placeholder="Quartier?">
+                </div>
+                <div class="form-group">
+                    <label for="form_descrpition">Description</label>
+                    <textarea type="text" class="form-control" id="form_descrpition"></textarea>
+                </div>
+                <label for="form_image">Image à afficher sur l'annonce</label>
+                <input type="hidden" id="form_image">
+                <div class="row image_select mb-4">
+                    <div class="col-3"><img src="../assets/img/maison.jpg" alt="" class="img-fluid image_select_item selected"></div>
+                    <div class="col-3"><img src="../assets/img/maison.jpg" alt="" class="img-fluid image_select_item"></div>
+                    <div class="col-3"><img src="../assets/img/maison.jpg" alt="" class="img-fluid image_select_item"></div>
+                    <div class="col-3"><img src="../assets/img/maison.jpg" alt="" class="img-fluid image_select_item"></div>
+                </div>
+                <button type="button" class="btn btn-primary" id="form_submit">Prévisualiser</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <h4>Informations sur le bien</h4>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- SCRIPTS -->
+<script>window.$ = window.jQuery = require('../assets/js/jquery-3.4.1.min.js')</script>
+<script src="../assets/js/popper.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../renderers/estate_details.js"></script>
+</body>
+</html>

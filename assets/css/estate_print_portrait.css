@@ -1,0 +1,320 @@
+body {
+    background: rgb(204,204,204);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    list-style: none;
+}
+
+#action_buttons {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+
+}
+
+.action_button {
+    background: #000;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    transform: scale(0.95);
+    opacity: 0.7;
+    transition: 0.1s ease-in;
+    margin-left: 4px;
+}
+
+.action_button:hover {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 3px 6px #000a;
+}
+
+.estate_print {
+    background: #fff;
+    display: block;
+    height: 842px;
+    width: 596px;
+    padding: 10px;
+    position: relative;
+}
+
+.top_container {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.middle_container {
+    width: 70%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+}
+
+.bottom_container {
+    width: 100%;
+    height: 5%;
+    background: #5E5EAF;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    color: #fff;
+}
+
+.estate_picture_container {
+    width: 70%;
+    height: 100%;
+    position: relative;
+}
+
+#estate_picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#estate_price {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #5E5EAF;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.estate_info {
+    width: calc(30% - 20px);
+    margin-left: 20px;
+}
+
+h1 {
+    text-align: center;
+    padding: 10px 20px;
+    background: #5E5EAF;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #fff;
+}
+
+.estate_location {
+    display: flex;
+    padding: 10px 0;
+}
+
+#estate_city {
+    font-size: 18px;
+}
+
+#estate_district {
+    font-size: 14px;
+    color: #7C7C7C;
+}
+
+#estate_reference {
+    font-size: 10px;
+    font-weight: normal;
+    color: #7C7C7C;
+}
+
+.estate_diag .diag_cursor:after {
+    content: attr(data-value);
+    position: absolute;
+    right: -46px;
+    color: #fff;
+    background: #000;
+    font-size: 14px;
+    line-height: 12px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    width: 30px;
+    justify-content: center;
+    top: -7px;
+    padding: 0 8px;
+    }
+
+.estate_feature {
+    background: #7C7C7C;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 5px;
+    color: #fff;
+    margin: 4px 0;
+}
+
+#estate_description {
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: normal;
+}
+
+.estate_diag .label {
+    font-size: 10px;
+    display: none;
+}
+
+.estate_diag {
+    margin-right: 100px;
+    position: relative;
+}
+
+.estate_diag .diag_cursor {
+    position: absolute;
+    color: #fff;
+    width: 100% ;
+    border-bottom: 1px solid #b2b2b2;
+    left: 30px;
+}
+
+.estate_diag ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4px;
+    margin: 2px 0;
+    height: 16px;
+    position: relative;
+}
+
+.estate_diag ul li:after {
+    content: '';
+    position: absolute;
+    background: inherit;
+    right: -8px;
+    width: 0;
+    height: 0;
+    display: block;
+    border-top: 8px solid white;
+    border-bottom: 8px solid white;
+    border-left: 8px solid transparent;
+}
+
+.estate_diag ul li span:first-child {
+    font-size: 8px;
+}
+
+.estate_diag ul li span:last-child {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.estate_diag ul li:nth-child(1) {
+    width: 40px;
+}
+
+.estate_diag ul li:nth-child(2) {
+    width: 55px;
+}
+
+.estate_diag ul li:nth-child(3) {
+    width: 70px;
+}
+
+.estate_diag ul li:nth-child(4) {
+    width: 85px;
+}
+
+.estate_diag ul li:nth-child(5) {
+    width: 100px;
+    color: #fff;
+}
+
+.estate_diag ul li:nth-child(6) {
+    width: 115px;
+    color: #fff;
+}
+
+.estate_diag ul li:nth-child(7) {
+    width: 130px;
+    color: #fff;
+}
+
+.diag-energy ul li:nth-child(1) {
+    background: #00FC04;
+}
+
+.diag-energy ul li:nth-child(2) {
+    background: #46FF04;
+}
+
+.diag-energy ul li:nth-child(3) {
+    background: #B2FD00;
+}
+
+.diag-energy ul li:nth-child(4) {
+    background: #FDFE02;
+}
+
+.diag-energy ul li:nth-child(5) {
+    background: #FEB100;
+}
+
+.diag-energy ul li:nth-child(6) {
+    background: #FD4D01;
+}
+
+.diag-energy ul li:nth-child(7) {
+    background: #FA0105;
+}
+
+.diag-gas ul li:nth-child(1) {
+    background: #DBCFE6;
+}
+
+.diag-gas ul li:nth-child(2) {
+    background: #D194E3;
+}
+
+.diag-gas ul li:nth-child(3) {
+    background: #B86CD9;
+}
+
+.diag-gas ul li:nth-child(4) {
+    background: #AD4CD9;
+}
+
+.diag-gas ul li:nth-child(5) {
+    background: #AF29DD;
+}
+
+.diag-gas ul li:nth-child(6) {
+    background: #9A0ACC;
+}
+
+.diag-gas ul li:nth-child(7) {
+    background: #8500CD;
+}
+
+.bottom_contact > span {
+    font-size: 10px;
+    margin-left: 10px;
+}
+
+.bottom_contact i {
+    margin-right: 2px;
+}
+
+.footer_logo {
+    height: 90%;
+    margin-right: 20px;
+}
+
+.bottom_website {
+    margin-left: auto;
+    font-size: 10px;
+}

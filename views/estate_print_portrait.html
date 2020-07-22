@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/estate_print_portrait.css">
+    <title>Document</title>
+</head>
+<body>
+    <did class="estate_print" id="estate_print">
+        <div class="top_container">
+            <div class="estate_picture_container">
+                <img id="estate_picture">
+                <h3 id="estate_price"></h3>
+            </div>
+            <div class="estate_info">
+                <h1>A Vendre</h1>
+                <div class="estate_location">
+                    <span class="icon icon-location"></span>
+                    <div>
+                        <h2 id="estate_city"></h2>
+                        <h3 id="estate_district"></h3>
+                    </div>
+                </div>
+                <h4 id="estate_reference"></h4>
+                <div class="estate_feature" id="estate_type"></div>
+                <div class="estate_feature" id="estate_rooms"></div>
+                <div class="estate_feature" id="estate_bedrooms"></div>
+                <div class="estate_feature" id="estate_carrez"></div>
+                <p id="estate_description"></p>
+            </div>
+        </div>
+        <div class="middle_container">
+            <div class="estate_diag diag-energy">
+                <span class="diag_cursor" id="estate_energy"></span>
+                <ul>
+                    <li><span>< 50</span><span>A</span></li>
+                    <li><span>51 à 90</span><span>B</span></li>
+                    <li><span>91 à 150</span><span>C</span></li>
+                    <li><span>151 à 230</span><span>D</span></li>
+                    <li><span>231 à 330</span><span>E</span></li>
+                    <li><span>331 à 450</span><span>F</span></li>
+                    <li><span>> 450</span><span>G</span></li>
+                </ul>
+            </div>
+            <div class="estate_diag diag-gas">
+                <span class="diag_cursor" id="estate_gas"></span>
+                <ul>
+                    <li><span>< 5</span><span>A</span></li>
+                    <li><span>6 à 10</span><span>B</span></li>
+                    <li><span>11 à 20</span><span>C</span></li>
+                    <li><span>21 à 35</span><span>D</span></li>
+                    <li><span>36 à 55</span><span>E</span></li>
+                    <li><span>56 à 80</span><span>F</span></li>
+                    <li><span>> 80</span><span>G</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom_container">
+            <img src="../assets/img/imok_logo_white.png" alt="" class="footer_logo">
+            <div class="bottom_contact">
+                <span>
+                    <i class="fa fa-phone-square"></i>
+                    <span>0322010101</span>
+                </span>
+                <span>
+                    <i class="fa fa-envelope"></i>
+                    <span>contact@imok.Fr</span>
+                </span>
+            </div>
+            <div class="bottom_website">www.imok.fr</div>
+        </div>
+        <!-- ACTION BUTTONS (won't be rendered in pdf) -->
+        <div id="action_buttons" data-html2canvas-ignore>
+            <div id="printBtn" class="action_button"><i class="fa fa-print fa-lg"></i></div>
+            <div id="saveBtn" class="action_button"><i class="far fa-save fa-lg"></i></div>
+        </div>
+    </did>
+    <script src="../renderers/estate_print.js"></script>
+</body>
+</html>

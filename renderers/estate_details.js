@@ -2,21 +2,47 @@ const storage = require('electron-json-storage')
 const API = require('../helpers/API')
 const ipc = require('electron').ipcRenderer
 
+const form = document.getElementById('form')
 const form_image = document.getElementById('form_image')
-const form_district = document.getElementById('form_district')
-const form_description = document.getElementById('form_district')
-const form_submit = document.getElementById('form_submit')
+const image_select = document.getElementById('image_select')
+
+/** TODO: GET REAL IMAGES */
+const fakeImages = [{url: '../assets/img/maison.jpg'}, {url: '../assets/img/maison.jpg'}, {url: '../assets/img/maison.jpg'}]
 
 const populateEstateCard = (estate) => {
-    console.log(estate)
+    form_image.value = fakeImages[0].url;
+    let count = 0
+    image_select.innerHTML = fakeImages.map((item) => {
+        count ++
+        return `<div class="col-3"><img src="${item.url}" class="img-fluid image_select_item${count ===1 ? ' selected' : ''}"></div>`
+    }).join('')
 }
 
-const load_preview = () => {
-    let estate = {toto:'tata'}
-    /** TODO : populate estate */
-    ipc.send('load_pdf_window', estate)
+const load_preview = (estate, submittedForm) => {
+    let estate_to_print = {
+        id: estate.id,
+        city: estate.city,
+        district: submittedForm.get('district'),
+        estate_type: estate.estate_type,
+        rooms: estate.rooms,
+        bedrooms: estate.bedrooms,
+        carrez_size: estate.carrez_size,
+        description: submittedForm.get('description'),
+        price: estate.price,
+        energy_consumption: estate.energy_consumption,
+        gas_emission: estate.gas_emission,
+        picture: submittedForm.get('image'),
+    }
+    let orientation = submittedForm.get('orientation')
+
+    ipc.send('load_pdf_window', {estate_to_print, orientation})
 }
 
+/**
+ * ============
+ * HERE WE GO !
+ * ============
+ */
 storage.get('user', (err, arg) => {
     const auth_token = arg.access_token
     const estate_id = new URLSearchParams(new URL(location.href).search).get('estate')
@@ -30,7 +56,10 @@ storage.get('user', (err, arg) => {
             form_image.value = $(this).attr('src')
         })
 
-        form_submit.onclick = load_preview
+        form.onsubmit = (e) => {
+            e.preventDefault()
+            load_preview(estate.estate, new FormData(e.target))
+        }
     })
 })
 

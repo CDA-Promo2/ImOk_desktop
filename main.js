@@ -11,11 +11,13 @@ const createLoginWindow = () => {
         width: 800,
         height: 600,
         resizable: false,
+        show: false,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
         }
     })
     loginWindow.loadURL(`file://${__dirname}/views/login.html`)
+    loginWindow.once('ready-to-show', () => {loginWindow.show()})
 }
 
 /**
@@ -26,27 +28,32 @@ const createMainWindow = () => {
     mainWindow = new BrowserWindow({
         width: 800,
         height:600,
+        show: false,
         webPreferences: {
             nodeIntegration: true
         }
     })
     mainWindow.loadURL(`file://${__dirname}/views/dashboard.html`)
+    mainWindow.once('ready-to-show', () => {mainWindow.show()})
 }
 
 /**
  * PDF PRINT WINDOW
  */
-let pdfWindow
-const createPdfWindow = () => {
-    pdfWindow = new BrowserWindow({
-        width: 842,
-        height: 618,
+const createPdfWindow = (orientation) => {
+    let pdfWindow = new BrowserWindow({
+        width: orientation === 'landscape' ? 842 : 618,
+        height: orientation === 'landscape' ? 618 : 842,
+        show: false,
         resizable: false,
         webPreferences: {
             nodeIntegration: true,
         },
     })
-    pdfWindow.loadURL(`file://${__dirname}/views/estate_print.html`)
+    pdfWindow.loadURL(`file://${__dirname}/views/estate_print_${orientation}.html`)
+    pdfWindow.once('ready-to-show', () => {
+        pdfWindow.show()
+    })
 }
 
 app.whenReady().then(createLoginWindow).then(() => {
@@ -62,12 +69,12 @@ app.whenReady().then(createLoginWindow).then(() => {
         })
     })
 
-    ipc.on('load_pdf_window', (event, arg) => {
-        if (pdfWindow === undefined) {
-            createPdfWindow()
-        } else {
-            pdfWindow.loadURL(`file://${__dirname}/views/estate_print.html`)
-        }
-        /** TODO: IPC SEND MESSAGE WITH ESTATE ARGUMENT */
+    ipc.on('load_pdf_window', (event, data) => {
+        let estate_to_print = data.estate_to_print
+        let orientation = data.orientation
+
+        storage.set('estate_to_print', estate_to_print, () => {
+            createPdfWindow(orientation)
+        })
     })
 })

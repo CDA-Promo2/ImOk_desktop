@@ -73,7 +73,7 @@ app.whenReady().then(createLoginWindow).then(() => {
         let estate_to_print = data.estate_to_print
         let orientation = data.orientation
 
-        storage.set('estate_to_print', estate_to_print, () => {
+        storage.set('estate_to_print', data, () => {
             createPdfWindow(orientation)
         })
     })

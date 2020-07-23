@@ -11,11 +11,12 @@ body {
 }
 
 #action_buttons {
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     right: 20px;
     display: flex;
     align-items: center;
+    z-index: 100;
 
 }
 
@@ -173,6 +174,24 @@ h1 {
     position: relative;
 }
 
+.estate_diag.undefined ul li{
+    filter: opacity(.3);
+}
+
+.estate_diag.undefined:after {
+    content: "Non reseigné";
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 20px);
+    text-transform: uppercase;
+    white-space: nowrap;
+    background: #eee;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    transform: translateX(-50%) translateY(-50%) rotate(-10deg);
+}
+
 .estate_diag .diag_cursor {
     position: absolute;
     color: #fff;
@@ -305,8 +324,11 @@ h1 {
     margin-left: 10px;
 }
 
-.bottom_contact i {
+.bottom_contact img {
     margin-right: 2px;
+    height: 14px;
+    position: relative;
+    top: 3px;
 }
 
 .footer_logo {

@@ -100,6 +100,7 @@ const populateView = (estate) => {
 }
 
 const setupCanvas = () => html2canvas(document.querySelector('#estate_print'), {
+    scrollY: -window.scrollY,
     scale: 4,
     useCORS: true,
     allowTaint: true

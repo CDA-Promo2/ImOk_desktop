@@ -16,8 +16,10 @@ const   estate_reference = document.getElementById('estate_reference'),
         estate_picture =document.getElementById('estate_picture')
 
 let orientation
+let estate
 storage.get('estate_to_print', (err, data) => {
-    orientation = data.orientation;
+    orientation = data.orientation
+    estate = data.estate_to_print
     populateView(data.estate_to_print)
 })
 
@@ -94,27 +96,25 @@ const populateView = (estate) => {
     /**
      * HTML TO PDF
      */
-    document.getElementById('saveBtn').onclick = () => {
-        print()
-    }
+    document.getElementById('saveBtn').onclick = () => handle_save()
 }
 
-function print() {
-    const filename = 'nouveau.pdf'
-    html2canvas(document.querySelector('#estate_print'), {
-        scale: 4,
-        useCORS: true,
-        allowTaint: true
-    })
-    .then(canvas => {
-        if (orientation === 'landscape') {
-            let pdf = new jsPDF('l', 'mm', 'a4');
-            pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 297, 210);
-            pdf.save(filename);
-        } else if (orientation === 'portrait') {
-            let pdf = new jsPDF('p', 'mm', 'a4');
-            pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 210, 297);
-            pdf.save(filename);
-        }
-    });
+const setupCanvas = () => html2canvas(document.querySelector('#estate_print'), {
+    scale: 4,
+    useCORS: true,
+    allowTaint: true
+})
+
+const savePDF = (canvas) => {
+    const filename = `IMOK_ref${("00000" + estate.id).slice(-5)}_${orientation}.pdf`
+    const pdf = new jsPDF(orientation === 'landscape' ? 'l' : 'p', 'mm', 'a4')
+    pdf.addImage(canvas.toDataURL('image/png'), 'PNG',0, 0,
+        orientation === 'landscape' ? 297 : 210,
+        orientation === 'landscape' ? 210 : 297
+    )
+    pdf.save(filename)
+}
+
+const handle_save = () => {
+    setupCanvas().then(canvas => savePDF(canvas))
 }

@@ -16,6 +16,10 @@ body.background-light {
     background: url('../img/background-light.jpg') no-repeat #F4F2F2;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 /**
 * COLORS
  */
@@ -36,7 +40,7 @@ body.background-light {
 .card {
     background: #fff;
     border: 0;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 0 6px 12px #000a;
     padding: 20px;
 }
@@ -57,9 +61,39 @@ body.background-light {
 }
 
 /**
+* ==== HOMEPAGE CARD =======
+ */
+.homepage-card {
+    background: #9898ff;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    height: 150px;
+    width: 150px;
+    margin: auto;
+    transition: .15s ease-in-out;
+}
+
+.homepage-card:hover {
+    transform: scale(1.05);
+}
+
+.homepage-card i {
+    font-size: 60px;
+}
+
+.homepage-card h4 {
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+
+/**
 * ==== LOGIN CARD =======
  */
-
 .login-card {
     width: 400px;
     position: absolute;

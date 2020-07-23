@@ -174,8 +174,14 @@ h1 {
     position: relative;
 }
 
-.estate_diag.undefined ul li{
-    filter: opacity(.3);
+.estate_diag.undefined:before {
+    content: '';
+    display: block;
+    width: 120%;
+    height: 100%;
+    background: #fffb;
+    position: absolute;
+    z-index: 1;
 }
 
 .estate_diag.undefined:after {

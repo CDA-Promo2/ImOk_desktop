@@ -16,6 +16,6 @@
     "axios": "^0.19.2",
     "electron-json-storage": "^4.1.8",
     "html2canvas": "^1.0.0-rc.5",
-    "jspdf": "^1.5.3"
+    "jspdf": "^2.5.1"
   }
 }
